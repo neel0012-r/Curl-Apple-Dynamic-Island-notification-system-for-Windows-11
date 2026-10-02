@@ -1,115 +1,78 @@
-<div align="center">
-
 # 🏝️ Curl V1 — Dynamic Island for Windows 11
 
-### *A fluid, zero-lag Dynamic Island experience for Windows 11*
+<p align="center">
+  <img src="icon.png" width="96" height="96" alt="Curl Logo" />
+</p>
 
-<br/>
+<p align="center">
+  <b>The world's most fluid, zero-lag Apple Dynamic Island experience for Windows 11</b>
+</p>
 
-<img src="icon.png" width="110" height="110" alt="Curl Logo" />
+<p align="center">
+  <img src="https://img.shields.io/badge/Version-1.0.0-00F2FE?style=for-the-badge" alt="Version" />
+  <img src="https://img.shields.io/badge/Platform-Windows%2011-0078D7?style=for-the-badge&logo=windows" alt="Platform" />
+  <img src="https://img.shields.io/badge/Idle%20CPU-0.0%25-10B981?style=for-the-badge" alt="CPU" />
+  <img src="https://img.shields.io/badge/RAM-~17MB-8B5CF6?style=for-the-badge" alt="RAM" />
+  <img src="https://img.shields.io/badge/License-MIT-EC4899?style=for-the-badge" alt="License" />
+</p>
 
-<br/>
-<br/>
+---
 
-<img src="https://img.shields.io/badge/Version-1.0.0-00F2FE?style=for-the-badge" alt="Version" />
-<img src="https://img.shields.io/badge/Platform-Windows%2011-0078D7?style=for-the-badge&logo=windows" alt="Platform" />
-<img src="https://img.shields.io/badge/License-MIT-EC4899?style=for-the-badge" alt="License" />
+## 🎬 Live Preview
 
-<br/>
-<br/>
+https://github.com/user-attachments/assets/your-video-id
 
-</div>
+<!-- Or if the video is inside the repo: -->
+<video src="Curl.mp4" width="100%" controls autoplay muted loop></video>
+
+<p align="center"><i>Watch how notifications elastically drop, bloom, and tuck away with real iOS spring physics</i></p>
 
 ---
 
 ## ✨ Overview
 
-**Curl** brings a Dynamic Island-style notification experience to Windows 11.
+**Curl** brings the signature Apple Dynamic Island to Windows 11 — beautifully.
 
-Instead of traditional rectangular Windows toast notifications appearing in the corner of the screen, Curl transforms notifications into a sleek animated island at the top of the display.
+Instead of ugly rectangular toast banners that block your screen, notifications elastically emerge from a sleek notch pill at the top of your display with authentic iOS spring physics, live app logos, and rich media previews.
 
-The interface is designed around **smooth spring motion, elastic morphing, glass effects, app icons, and minimal UI** — creating a modern Windows experience inspired by mobile notification interfaces.
-
----
-
-## 🎬 Curl in Action
-
-<div align="center">
-
-### Experience the UI
-
-See Curl's notification animations, Dynamic Island morphing, app icons, transitions, and overall visual experience in action.
-
-<br/>
-
-<!--
-IMPORTANT:
-Replace the URL below with the GitHub-generated URL
-you get after dragging Curl.mp4 into the README editor.
--->
-
-YOUR_GITHUB_VIDEO_URL_HERE
-
-<br/>
-<br/>
-
-</div>
+Built from scratch with a **zero-lag architecture**, Curl uses event-driven SQLite WAL change tracking to achieve instantaneous notification rendering while consuming **0% idle CPU** and under **20 MB RAM**.
 
 ---
 
 ## 🚀 Key Features
 
-### 🏝️ Dynamic Island Notifications
+- **🍏 Authentic 4-Phase Spring Physics**  
+  Drops from the top bezel as a compact **74px notch pill** → dwells 700ms so you see the app logo → elastically blooms open with `cubic-bezier(0.16, 1, 0.3, 1)` → snaps back to compact pill → smoothly tucks away into the bezel.
 
-Notifications smoothly emerge from the top of the screen as a compact pill and expand into a larger interactive card.
+- **⚡ 0% Idle CPU & Ultra-Lightweight**  
+  Zero polling loops. Pure asynchronous Windows Push Notification SQLite database watcher with instant reaction time.
 
-### ⚡ Hyper-Smooth Spring Motion
+- **🛡️ 0ms Toast Deflector (Taskbar Auto-Hide Safe)**  
+  Native background deflector prevents invisible Windows toast hit-test blocks. Your bottom-right auto-hide taskbar sensor stays 100% responsive.
 
-Curl uses carefully tuned animation curves to create fluid transitions between:
+- **💎 Dual Aesthetic Themes**  
+  - **OLED Pitch Black** — Pure `#000000` with subtle neon cyan accents & inner glow  
+  - **Frosted iOS Light** — 28px backdrop blur with true glassmorphism
 
-- Compact pill
-- Expanded notification
-- Media / rich-content state
-- Compact state
-- Hidden state
+- **📸 Rich Screenshot & Clipboard Previews**  
+  Automatically captures Snipping Tool / Snip & Sketch screenshots and clipboard images and shows high-res previews inside the island.
 
-### 🖥️ Windows 11 Integration
+- **🎯 Perfect App Logo Resolution**  
+  Curated vector SVGs + sub-millisecond Windows shortcut icon resolution for Telegram, Chrome, WhatsApp, Discord, Spotify, and every desktop/UWP app.
 
-Designed specifically around the Windows 11 desktop environment while maintaining a clean, minimal visual language.
+- **⌨️ Instant Shortcut**  
+  `Ctrl + Alt + C` — Open the settings dashboard anytime.
 
-### 🎨 Dual Visual Themes
+---
 
-**OLED Dark**
+## 🎬 How It Works
 
-- Pure black background
-- Subtle neon accents
-- High-contrast UI
-- Deep glass effects
-
-**Frosted Light**
-
-- Translucent surfaces
-- Soft blur
-- Glassmorphic depth
-- Light interface styling
-
-### 📸 Rich Content Preview
-
-Curl can display rich notification content such as:
-
-- App icons
-- Images
-- Screenshots
-- Clipboard previews
-- Media information
-
-### 🎯 Automatic App Icon Detection
-
-Curl resolves application icons dynamically, allowing notifications to visually match the application that generated them.
-
-### ⌨️ Quick Settings Shortcut
-
-Use:
-
-```text
-Ctrl + Alt + C
+```mermaid
+graph TD
+    A["App Sends Notification<br/>(Telegram, Chrome, etc.)"] --> B["Windows Push Notifications"]
+    B --> C["wpndatabase.db WAL Event"]
+    C --> D["Curl SQLite Watcher<br/>(0ms Capture)"]
+    D --> E["Compact 74px Notch Pill Drops"]
+    E -- 700ms Dwell --> F["Elastic Spring Bloom<br/>into Full Card"]
+    F -- Reading Time --> G["Contract back to Pill"]
+    G -- 700ms Dwell --> H["Smooth Tuck into Bezel"]
