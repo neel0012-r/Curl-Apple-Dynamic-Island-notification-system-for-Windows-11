@@ -1,12 +1,15 @@
+<div align="center">
+
 # 🏝️ Curl V1 — Dynamic Island for Windows 11
 
-<p align="center">
-  <img src="icon.png" width="96" height="96" alt="Curl Logo" />
-</p>
+### *Fluid Zero-Lag Apple Dynamic Island × Authentic Spring Physics Engine*
 
-<p align="center">
-  <b>The world's most fluid, zero-lag Apple Dynamic Island experience for Windows 11</b>
-</p>
+<br/>
+
+<img src="Curl.gif" alt="Curl Dynamic Island Live Demo" width="90%" style="border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.6);" />
+
+<br/>
+<br/>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Version-1.0.0-00F2FE?style=for-the-badge" alt="Version" />
@@ -16,52 +19,43 @@
   <img src="https://img.shields.io/badge/License-MIT-EC4899?style=for-the-badge" alt="License" />
 </p>
 
----
+<br/>
 
-## 🎬 Live Preview
+**The world's most responsive, lightweight Apple Dynamic Island notification system built specifically for Windows 11.**
 
-https://github.com/user-attachments/assets/your-video-id
-
-<!-- Or if the video is inside the repo: -->
-<video src="Curl.mp4" width="100%" controls autoplay muted loop></video>
-
-<p align="center"><i>Watch how notifications elastically drop, bloom, and tuck away with real iOS spring physics</i></p>
+</div>
 
 ---
 
-## ✨ Overview
+## ⚡ Why Curl?
 
-**Curl** brings the signature Apple Dynamic Island to Windows 11 — beautifully.
-
-Instead of ugly rectangular toast banners that block your screen, notifications elastically emerge from a sleek notch pill at the top of your display with authentic iOS spring physics, live app logos, and rich media previews.
-
-Built from scratch with a **zero-lag architecture**, Curl uses event-driven SQLite WAL change tracking to achieve instantaneous notification rendering while consuming **0% idle CPU** and under **20 MB RAM**.
+Windows 11 notification banners are bulky, rectangular, and cover crucial screen corners. **Curl** replaces them with an elegant, elastic notch pill at the top of your display—delivering real iOS spring physics, live vector app icons, and zero performance impact.
 
 ---
 
-## 🚀 Key Features
+## ✨ Key Features
 
-- **🍏 Authentic 4-Phase Spring Physics**  
-  Drops from the top bezel as a compact **74px notch pill** → dwells 700ms so you see the app logo → elastically blooms open with `cubic-bezier(0.16, 1, 0.3, 1)` → snaps back to compact pill → smoothly tucks away into the bezel.
+- 🍏 **Authentic 4-Phase Spring Physics:** 
+  Drops from the top bezel as a compact **74px notch pill**, dwells for 700ms, elastically blooms open into a full notification card via `cubic-bezier(0.16, 1, 0.3, 1)`, and smoothly tucks away into the bezel.
 
-- **⚡ 0% Idle CPU & Ultra-Lightweight**  
-  Zero polling loops. Pure asynchronous Windows Push Notification SQLite database watcher with instant reaction time.
+- ⚡ **0% Idle CPU & Ultra-Lightweight:** 
+  Zero polling loops. Pure asynchronous SQLite WAL event listener capturing Windows notifications with **0ms latency** using **~17 MB RAM**.
 
-- **🛡️ 0ms Toast Deflector (Taskbar Auto-Hide Safe)**  
-  Native background deflector prevents invisible Windows toast hit-test blocks. Your bottom-right auto-hide taskbar sensor stays 100% responsive.
+- 🛡️ **0ms Toast Deflector (Taskbar Safe):** 
+  Built-in native deflector prevents invisible hit-test blocks, keeping your bottom-right auto-hide taskbar sensor 100% responsive.
 
-- **💎 Dual Aesthetic Themes**  
-  - **OLED Pitch Black** — Pure `#000000` with subtle neon cyan accents & inner glow  
-  - **Frosted iOS Light** — 28px backdrop blur with true glassmorphism
+- 💎 **Dual Aesthetic Themes:** 
+  - **OLED Pitch Black:** Deep `#000000` with subtle neon cyan accents and inner depth glow.
+  - **Frosted iOS Light:** Translucent 28px backdrop blur with glassmorphic depth.
 
-- **📸 Rich Screenshot & Clipboard Previews**  
-  Automatically captures Snipping Tool / Snip & Sketch screenshots and clipboard images and shows high-res previews inside the island.
+- 📸 **Rich Media & Clipboard Previews:** 
+  Inline high-resolution previews for Snipping Tool screenshots and image clipboard copies directly inside the island.
 
-- **🎯 Perfect App Logo Resolution**  
-  Curated vector SVGs + sub-millisecond Windows shortcut icon resolution for Telegram, Chrome, WhatsApp, Discord, Spotify, and every desktop/UWP app.
+- 🎯 **100% Vector App Icons:** 
+  Instant crisp vector logos for Telegram, Chrome, WhatsApp, Discord, Spotify, and all desktop/UWP applications.
 
-- **⌨️ Instant Shortcut**  
-  `Ctrl + Alt + C` — Open the settings dashboard anytime.
+- ⌨️ **Quick Settings Shortcut:** 
+  Press `Ctrl + Alt + C` anytime to summon the control panel.
 
 ---
 
@@ -69,10 +63,10 @@ Built from scratch with a **zero-lag architecture**, Curl uses event-driven SQLi
 
 ```mermaid
 graph TD
-    A["App Sends Notification<br/>(Telegram, Chrome, etc.)"] --> B["Windows Push Notifications"]
-    B --> C["wpndatabase.db WAL Event"]
-    C --> D["Curl SQLite Watcher<br/>(0ms Capture)"]
-    D --> E["Compact 74px Notch Pill Drops"]
-    E -- 700ms Dwell --> F["Elastic Spring Bloom<br/>into Full Card"]
-    F -- Reading Time --> G["Contract back to Pill"]
-    G -- 700ms Dwell --> H["Smooth Tuck into Bezel"]
+    A["App Sends Notification (Telegram, Chrome, etc.)"] --> B["Windows Push Notifications (WPN)"]
+    B --> C["wpndatabase.db WAL Event Trigger"]
+    C --> D["Curl SQLite Watcher (0ms Capture)"]
+    D --> E["Compact 74px Notch Pill Drops Down"]
+    E -- 700ms Dwell --> F["Elastic Spring Bloom into Full Card"]
+    F -- Reading Time --> G["Contract Back to Pill"]
+    G -- 700ms Dwell --> H["Smooth Tuck-away into Screen Bezel"]
