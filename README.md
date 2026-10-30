@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🏝️ Curl V1 — Dynamic Island for Windows 11
+# 🏝️ Curl V2 — Dynamic Island for Windows 11
 
 ### *Fluid Zero-Lag Apple Dynamic Island × Authentic Spring Physics Engine*
 
